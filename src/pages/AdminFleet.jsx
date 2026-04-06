@@ -182,7 +182,7 @@ function AdminFleet() {
            <div 
              key={car._id || car.id} 
              onClick={() => setSelectedCar(car)}
-             className="bg-white rounded-[3rem] p-8 shadow-sm border border-slate-100 hover:border-red-600/20 hover:shadow-2xl transition-all duration-700 cursor-pointer group flex flex-col justify-between h-[520px] md:h-[540px]"
+             className="bg-white rounded-[3rem] p-8 shadow-sm border border-slate-100 hover:border-red-600/20 hover:shadow-2xl transition-all duration-700 cursor-pointer group flex flex-col justify-between h-auto min-h-[520px]"
            >
               <div>
                  <div className="flex justify-between items-start mb-10">

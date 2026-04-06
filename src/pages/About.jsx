@@ -1,8 +1,10 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
 function About() {
+  const navigate = useNavigate();
   const stats = [
     { label: 'Instagram Followers', value: '17,000+' },
     { label: 'Regular Customers', value: '500+' },
@@ -123,8 +125,13 @@ function About() {
             ))}
          </div>
 
-         <div className="pt-8">
-            <button className="px-12 py-6 bg-red-600 text-white rounded-xl font-bold text-xs uppercase tracking-widest shadow-xl hover:scale-105 hover:bg-black transition-all duration-500">Contact for Car Attachment</button>
+         <div className="pt-8 mb-12">
+            <button 
+              onClick={() => navigate('/contact')}
+              className="px-12 py-6 bg-red-600 text-white rounded-2xl font-bold text-xs uppercase tracking-widest shadow-2xl shadow-red-600/30 active:scale-95 hover:bg-black hover:scale-105 transition-all duration-500"
+            >
+               Contact for Car Attachment
+            </button>
          </div>
       </section>
 

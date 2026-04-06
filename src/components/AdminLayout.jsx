@@ -87,10 +87,25 @@ function AdminLayout({ children, activePage }) {
                  <span className="material-symbols-outlined text-[22px]">notifications</span>
                  <span className="absolute top-2 right-2 w-2 h-2 bg-red-600 border-2 border-white rounded-full"></span>
               </button>
-              <div className="w-9 h-9 rounded-xl overflow-hidden shadow-sm border border-slate-100">
-                 <img src="https://ui-avatars.com/api/?name=Admin&background=ef4444&color=fff" alt="Admin" className="w-full h-full object-cover" />
+              
+              <div className="relative group/profile">
+                <button className="w-9 h-9 rounded-xl overflow-hidden shadow-sm border border-slate-100 active:scale-95 transition-all">
+                   <img src="https://ui-avatars.com/api/?name=Admin&background=ef4444&color=fff" alt="Admin" className="w-full h-full object-cover" />
+                </button>
+                
+                {/* Profile Dropdown */}
+                <div className="absolute right-0 top-full mt-2 w-48 bg-white rounded-2xl shadow-2xl border border-slate-100 py-2 opacity-0 invisible group-hover/profile:opacity-100 group-hover/profile:visible transition-all z-[200]">
+                  <Link to="/account" className="flex items-center gap-3 px-4 py-3 text-[10px] font-bold text-slate-600 uppercase tracking-widest hover:bg-slate-50 hover:text-red-600">
+                    <span className="material-symbols-outlined text-lg">account_circle</span> My Account
+                  </Link>
+                  <button 
+                    onClick={() => { logout(); navigate('/login'); }}
+                    className="w-full flex items-center gap-3 px-4 py-3 text-[10px] font-bold text-slate-600 uppercase tracking-widest hover:bg-red-50 hover:text-red-600 border-t border-slate-50"
+                  >
+                    <span className="material-symbols-outlined text-lg">logout</span> Logout
+                  </button>
+                </div>
               </div>
-              {/* Mobile logout — hidden, in tab bar "More" */}
            </div>
         </header>
 

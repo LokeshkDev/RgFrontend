@@ -127,33 +127,49 @@ function Fleet() {
             <div className="flex flex-col lg:flex-row gap-12">
 
                {/* Filters Sidebar (Refined for Simplicity) */}
-               <aside className="w-full lg:w-72 shrink-0 space-y-8">
-                  <div className="p-6 md:p-8 bg-white rounded-3xl md:rounded-[2.5rem] shadow-sm border border-slate-100 space-y-10">
-                     <div className="flex items-center justify-between border-b border-slate-50 pb-6">
-                        <h3 className="text-lg font-bold text-slate-900 uppercase tracking-tight">Filter Cars</h3>
-                        <button onClick={() => { setVehicleTypes(categories.map(c => c.name)); setPriceRange(15000); }} className="text-[10px] font-bold text-red-600 uppercase tracking-widest hover:underline">Clear</button>
-                     </div>
-
-                     <div className="space-y-6">
-                        <label className="text-[10px] font-bold text-slate-400 uppercase tracking-widest block px-1">Price per day</label>
-                        <input type="range" min="1000" max="15000" step="500" className="w-full h-1.5 bg-slate-100 rounded-lg appearance-none accent-red-600 cursor-pointer" value={priceRange} onChange={(e) => setPriceRange(parseInt(e.target.value))} />
-                        <div className="flex justify-between text-[11px] font-bold text-slate-900">
-                           <span className="text-slate-300">₹1,000</span>
-                           <span className="text-red-600">₹{priceRange.toLocaleString()}</span>
+               <aside className="w-full lg:w-72 shrink-0">
+                  {/* Mobile Filter Toggle */}
+                  <button 
+                    onClick={() => setShowFilters(!showFilters)}
+                    className="lg:hidden w-full mb-6 p-5 bg-white rounded-3xl border border-slate-100 flex items-center justify-between shadow-sm active:scale-95 transition-all group"
+                  >
+                     <div className="flex items-center gap-3">
+                        <div className="w-9 h-9 bg-red-600/10 rounded-xl flex items-center justify-center text-red-600 group-hover:bg-red-600 group-hover:text-white transition-colors">
+                           <span className="material-symbols-outlined text-[20px]">filter_list</span>
                         </div>
+                        <span className="text-sm font-bold text-slate-900 uppercase tracking-widest">Filter Cars</span>
                      </div>
+                     <span className={`material-symbols-outlined text-slate-400 transition-transform duration-300 ${showFilters ? 'rotate-180' : ''}`}>expand_more</span>
+                  </button>
 
-                     <div className="space-y-6">
-                        <label className="text-[10px] font-bold text-slate-400 uppercase tracking-widest block px-1">Categories</label>
-                        <div className="space-y-2">
-                           {categories.map((cat) => (
-                              <label key={cat._id || cat.id} className={`flex items-center gap-4 cursor-pointer p-4 rounded-2xl border transition-all ${vehicleTypes.includes(cat.name) ? 'bg-red-50 border-red-600/20' : 'bg-slate-50 border-transparent hover:bg-slate-100'}`}>
-                                 <input type="checkbox" checked={vehicleTypes.includes(cat.name)} onChange={() => toggleType(cat.name)} className="w-5 h-5 rounded text-red-600 focus:ring-red-500 border-slate-300" />
-                                 <span className={`text-[10px] font-bold uppercase tracking-widest ${vehicleTypes.includes(cat.name) ? 'text-red-600' : 'text-slate-500'}`}>{cat.name}</span>
-                              </label>
-                           ))}
-                        </div>
-                     </div>
+                  <div className={`${showFilters ? 'block' : 'hidden md:hidden lg:block'} space-y-8 animate-in slide-in-from-top-4 duration-500`}>
+                    <div className="p-6 md:p-8 bg-white rounded-3xl md:rounded-[2.5rem] shadow-sm border border-slate-100 space-y-10">
+                       <div className="flex items-center justify-between border-b border-slate-50 pb-6">
+                          <h3 className="text-lg font-bold text-slate-900 uppercase tracking-tight">Filter Cars</h3>
+                          <button onClick={() => { setVehicleTypes(categories.map(c => c.name)); setPriceRange(15000); }} className="text-[10px] font-bold text-red-600 uppercase tracking-widest hover:underline">Clear</button>
+                       </div>
+
+                       <div className="space-y-6">
+                          <label className="text-[10px] font-bold text-slate-400 uppercase tracking-widest block px-1">Price per day</label>
+                          <input type="range" min="1000" max="15000" step="500" className="w-full h-1.5 bg-slate-100 rounded-lg appearance-none accent-red-600 cursor-pointer" value={priceRange} onChange={(e) => setPriceRange(parseInt(e.target.value))} />
+                          <div className="flex justify-between text-[11px] font-bold text-slate-900">
+                             <span className="text-slate-300">₹1,000</span>
+                             <span className="text-red-600">₹{priceRange.toLocaleString()}</span>
+                          </div>
+                       </div>
+
+                       <div className="space-y-6">
+                          <label className="text-[10px] font-bold text-slate-400 uppercase tracking-widest block px-1">Categories</label>
+                          <div className="space-y-2">
+                             {categories.map((cat) => (
+                                <label key={cat._id || cat.id} className={`flex items-center gap-4 cursor-pointer p-4 rounded-2xl border transition-all ${vehicleTypes.includes(cat.name) ? 'bg-red-50 border-red-600/20' : 'bg-slate-50 border-transparent hover:bg-slate-100'}`}>
+                                   <input type="checkbox" checked={vehicleTypes.includes(cat.name)} onChange={() => toggleType(cat.name)} className="w-5 h-5 rounded text-red-600 focus:ring-red-500 border-slate-300" />
+                                   <span className={`text-[10px] font-bold uppercase tracking-widest ${vehicleTypes.includes(cat.name) ? 'text-red-600' : 'text-slate-500'}`}>{cat.name}</span>
+                                </label>
+                             ))}
+                          </div>
+                       </div>
+                    </div>
                   </div>
                </aside>
 
@@ -183,6 +199,21 @@ function Fleet() {
                                  </div>
                               </div>
 
+                              <div className="grid grid-cols-2 gap-3 mb-4">
+                                 <div className="bg-red-50 p-3 rounded-2xl border border-red-100 flex flex-col items-center justify-center gap-1">
+                                    <div className="flex items-center gap-1.5 text-red-600">
+                                       <span className="material-symbols-outlined text-[16px] font-bold">speed</span>
+                                       <span className="text-[10px] font-bold uppercase tracking-tight">{car.dailyKmLimit || 300} KM/day</span>
+                                    </div>
+                                 </div>
+                                 <div className="bg-slate-50 p-3 rounded-2xl border border-slate-100 flex flex-col items-center justify-center gap-1">
+                                    <div className="flex items-center gap-1.5 text-slate-600">
+                                       <span className="material-symbols-outlined text-[16px] font-bold">payments</span>
+                                       <span className="text-[10px] font-bold uppercase tracking-tight">₹{car.extraKmCharge || 12}/km extra</span>
+                                    </div>
+                                 </div>
+                              </div>
+
                               <div className="grid grid-cols-3 gap-3">
                                  {[
                                     { icon: 'local_gas_station', val: car.specs?.fuel || 'Petrol' },
@@ -203,7 +234,7 @@ function Fleet() {
                                  <p className="text-2xl font-bold text-slate-900">₹{car.price}</p>
                               </div>
                               <button
-                                 className="px-8 py-5 bg-slate-900 text-white rounded-2xl font-bold text-[10px] uppercase tracking-widest group-hover:bg-red-600 transition-all shadow-xl group-hover:shadow-red-600/20"
+                                 className="px-8 py-5 bg-slate-900 text-white rounded-2xl font-bold text-[10px] uppercase tracking-widest group-hover:bg-red-600 group-hover:scale-105 active:scale-95 transition-all shadow-xl group-hover:shadow-red-600/20"
                               >
                                  Book Car
                               </button>
@@ -225,6 +256,7 @@ function Fleet() {
             </div>
          </div>
 
+         <div className="pb-40"></div>
          <Footer />
       </div>
    );

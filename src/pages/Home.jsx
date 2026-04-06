@@ -104,7 +104,7 @@ function Home() {
 
               <button 
                 onClick={handleSearchCars}
-                className="w-full py-5 bg-red-600 text-white rounded-xl font-bold text-xs uppercase tracking-[0.2em] shadow-xl shadow-red-600/20 hover:bg-black hover:scale-[1.01] active:scale-95 transition-all"
+                className="w-full py-5 bg-red-600 text-white rounded-2xl font-bold text-xs uppercase tracking-[0.2em] shadow-2xl shadow-red-600/30 hover:bg-red-500 hover:scale-[1.01] active:scale-95 transition-all"
               >
                 Find Available Cars
               </button>
@@ -125,7 +125,7 @@ function Home() {
                <span className="text-red-500 font-bold text-[12px] uppercase tracking-widest">Earning Opportunity</span>
                <h3 className="text-5xl md:text-7xl font-bold text-white tracking-tight leading-tight">Car Attachment <br/>Service.</h3>
                <p className="text-white/70 font-medium text-lg leading-relaxed max-w-xl">Earn guaranteed monthly income by attaching your car with us. We handle everything from bookings to maintenance.</p>
-               <button onClick={() => navigate('/about')} className="px-10 py-5 bg-red-600 text-white rounded-xl font-bold text-xs uppercase tracking-widest hover:bg-white hover:text-black transition-all shadow-xl shadow-red-600/20">Learn More About Attachment</button>
+               <button onClick={() => navigate('/about')} className="px-10 py-5 bg-red-600 text-white rounded-3xl font-bold text-[10px] md:text-xs uppercase tracking-widest hover:bg-white hover:text-black hover:scale-105 active:scale-95 transition-all shadow-2xl shadow-red-600/30">Learn More About Attachment</button>
             </div>
          </div>
       </section>

@@ -45,10 +45,12 @@ function Footer() {
 
         <div className="space-y-8">
           <h4 className="text-[10px] font-bold text-white uppercase tracking-widest opacity-40">Get in Touch</h4>
-          <div className="bg-white/5 border border-white/5 rounded-2xl p-8 space-y-4">
+          <div className="bg-white/5 border border-white/5 rounded-3xl p-8 space-y-4">
              <p className="text-[10px] font-bold text-white/60 uppercase tracking-widest">Email Support</p>
              <p className="text-sm font-bold text-white">rgselfdrivingcars5@gmail.com</p>
-             <button className="w-full py-4 bg-red-600 text-white rounded-xl font-bold text-xs uppercase tracking-widest hover:bg-white hover:text-black transition-all shadow-lg">Contact Us</button>
+             <Link to="/contact" className="block">
+                <button className="w-full py-5 bg-red-600 text-white rounded-2xl font-bold text-[10px] uppercase tracking-widest hover:bg-white hover:text-black hover:scale-[1.02] active:scale-95 transition-all shadow-xl shadow-red-600/20">Contact Us</button>
+             </Link>
           </div>
         </div>
       </div>

@@ -25,6 +25,28 @@ function AdminCustomers() {
     fetchUsers();
   }, []);
 
+  const resetPassword = async (email) => {
+    const newPassword = window.prompt(`Enter new password for ${email}:`);
+    if (newPassword && newPassword.length >= 6) {
+      try {
+        const response = await fetch(`${API_BASE}/reset-password`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ identifier: email, newPassword })
+        });
+        if (response.ok) {
+          alert('Password reset successfully.');
+        } else {
+          alert('Reset failed.');
+        }
+      } catch (err) {
+        alert('Action failed.');
+      }
+    } else if (newPassword) {
+      alert('Password must be at least 6 characters.');
+    }
+  };
+
   const deleteUser = async (id) => {
     if (window.confirm('Are you sure you want to delete this user permanently?')) {
       try {
@@ -81,12 +103,22 @@ function AdminCustomers() {
                      <span className="px-5 py-2 bg-slate-100 text-slate-700 text-[10px] font-bold uppercase tracking-widest rounded-full border border-slate-200">{user.role || 'USER'}</span>
                   </td>
                   <td className="px-10 py-8 text-right opacity-0 group-hover:opacity-100 transition-all">
-                     <button 
-                        onClick={() => deleteUser(user._id)}
-                        className="w-12 h-12 bg-red-50 text-red-500 rounded-2xl hover:bg-red-600 hover:text-white transition-all shadow-sm flex items-center justify-center ml-auto"
-                     >
-                        <span className="material-symbols-outlined text-sm font-bold">delete</span>
-                     </button>
+                     <div className="flex items-center justify-end gap-2">
+                       <button 
+                           onClick={(e) => { e.stopPropagation(); resetPassword(user.email); }}
+                           className="w-10 h-10 bg-slate-50 text-slate-400 rounded-xl hover:bg-slate-900 hover:text-white transition-all shadow-sm flex items-center justify-center"
+                           title="Reset Password"
+                       >
+                           <span className="material-symbols-outlined text-sm font-bold">lock_reset</span>
+                       </button>
+                       <button 
+                           onClick={(e) => { e.stopPropagation(); deleteUser(user._id); }}
+                           className="w-10 h-10 bg-red-50 text-red-500 rounded-xl hover:bg-red-600 hover:text-white transition-all shadow-sm flex items-center justify-center"
+                           title="Delete User"
+                       >
+                           <span className="material-symbols-outlined text-sm font-bold">delete</span>
+                       </button>
+                     </div>
                   </td>
                 </tr>
               ))}
@@ -110,12 +142,20 @@ function AdminCustomers() {
                         <span className="px-3 py-1 bg-slate-100 text-slate-500 text-[10px] font-bold uppercase tracking-widest rounded-full">{user.role || 'User'}</span>
                      </div>
                   </div>
-                  <button 
-                     onClick={() => deleteUser(user._id)}
-                     className="w-12 h-12 bg-red-50 text-red-500 rounded-2xl flex items-center justify-center hover:bg-red-600 hover:text-white transition-all"
-                  >
-                     <span className="material-symbols-outlined text-xl font-bold">delete</span>
-                  </button>
+                  <div className="flex gap-2">
+                     <button 
+                        onClick={() => resetPassword(user.email)}
+                        className="w-12 h-12 bg-slate-50 text-slate-400 rounded-2xl flex items-center justify-center hover:bg-slate-900 hover:text-white transition-all shadow-sm"
+                     >
+                        <span className="material-symbols-outlined text-xl font-bold">lock_reset</span>
+                     </button>
+                     <button 
+                        onClick={() => deleteUser(user._id)}
+                        className="w-12 h-12 bg-red-50 text-red-500 rounded-2xl flex items-center justify-center hover:bg-red-600 hover:text-white transition-all shadow-sm"
+                     >
+                        <span className="material-symbols-outlined text-xl font-bold">delete</span>
+                     </button>
+                  </div>
                </div>
 
                <div className="space-y-5 pt-8 border-t border-slate-50">

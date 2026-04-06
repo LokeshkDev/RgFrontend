@@ -17,6 +17,7 @@ import AdminAnalytics from './pages/AdminAnalytics';
 import AdminMaintenance from './pages/AdminMaintenance';
 import AdminPricing from './pages/AdminPricing';
 import useStore from './store/useStore';
+import ScrollToTop from './components/ScrollToTop';
 
 // Protected Route Protocol
 const ProtectedRoute = ({ children, role }) => {
@@ -25,6 +26,8 @@ const ProtectedRoute = ({ children, role }) => {
   if (role && user.role !== role) return <Navigate to="/" replace />;
   return children;
 };
+
+const ScrollToTopPlaceholder = () => null; // To avoid duplicate import errors if I'm not careful
 
 function App() {
   const fetchCars = useStore((state) => state.fetchCars);
@@ -35,6 +38,7 @@ function App() {
 
   return (
     <Router>
+      <ScrollToTop />
       <Routes>
         {/* Public Hub Nodes */}
         <Route path="/" element={<Home />} />
