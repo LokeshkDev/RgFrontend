@@ -18,6 +18,12 @@ const useStore = create(
       dropTime: '10:00',
       selectedCar: null,
 
+      // --- Helper: Protected Headers ---
+      getAuthHeader: () => {
+        const token = get().user?.token;
+        return token ? { 'Authorization': `Bearer ${token}` } : {};
+      },
+
       // --- Data Fetching ---
 
       fetchLocations: async () => {
@@ -35,7 +41,10 @@ const useStore = create(
         try {
           const res = await fetch(`${API_BASE}/locations`, {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            headers: { 
+              'Content-Type': 'application/json',
+              ...get().getAuthHeader() 
+            },
             body: JSON.stringify({ name }),
           });
           if (res.ok) {
@@ -47,7 +56,10 @@ const useStore = create(
 
       deleteLocation: async (id) => {
         try {
-          const res = await fetch(`${API_BASE}/locations/${id}`, { method: 'DELETE' });
+          const res = await fetch(`${API_BASE}/locations/${id}`, { 
+            method: 'DELETE',
+            headers: { ...get().getAuthHeader() }
+          });
           if (res.ok) {
             set((state) => ({ locations: state.locations.filter(l => (l._id || l.id) !== id) }));
           }
@@ -59,14 +71,10 @@ const useStore = create(
           const res = await fetch(`${API_BASE}/categories`);
           if (!res.ok) throw new Error('Registry Offline');
           const data = await res.json();
-          // Fallback array if database is initialized but empty
           set({ categories: data.length > 0 ? data : [] });
         } catch (err) { 
           console.error('Error fetching categories', err);
-          // Only use hardcoded defaults if fetch absolutely fails
-          if (get().categories.length === 0) {
-             set({ categories: [] });
-          }
+          if (get().categories.length === 0) set({ categories: [] });
         }
       },
 
@@ -74,7 +82,10 @@ const useStore = create(
         try {
           const res = await fetch(`${API_BASE}/categories`, {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            headers: { 
+              'Content-Type': 'application/json',
+              ...get().getAuthHeader() 
+            },
             body: JSON.stringify({ name }),
           });
           const data = await res.json();
@@ -94,7 +105,10 @@ const useStore = create(
 
       deleteCategory: async (id) => {
         try {
-          const res = await fetch(`${API_BASE}/categories/${id}`, { method: 'DELETE' });
+          const res = await fetch(`${API_BASE}/categories/${id}`, { 
+            method: 'DELETE',
+            headers: { ...get().getAuthHeader() }
+          });
           if (res.ok) {
             set((state) => ({ categories: state.categories.filter(c => (c._id || c.id) !== id) }));
           }
@@ -114,7 +128,9 @@ const useStore = create(
       fetchBookings: async (email = null) => {
         try {
           const url = email ? `${API_BASE}/bookings?email=${email}` : `${API_BASE}/bookings`;
-          const response = await fetch(url);
+          const response = await fetch(url, {
+             headers: { ...get().getAuthHeader() }
+          });
           const data = await response.json();
           set({ bookings: data });
         } catch (err) {
@@ -183,7 +199,10 @@ const useStore = create(
         try {
           const response = await fetch(`${API_BASE}/cars`, {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            headers: { 
+              'Content-Type': 'application/json',
+              ...get().getAuthHeader() 
+            },
             body: JSON.stringify(carData),
           });
           if (response.ok) {
@@ -199,7 +218,10 @@ const useStore = create(
         try {
           const response = await fetch(`${API_BASE}/cars/${id}`, {
             method: 'PUT',
-            headers: { 'Content-Type': 'application/json' },
+            headers: { 
+              'Content-Type': 'application/json',
+              ...get().getAuthHeader() 
+            },
             body: JSON.stringify(updatedData),
           });
           if (response.ok) {
@@ -217,6 +239,7 @@ const useStore = create(
         try {
           const response = await fetch(`${API_BASE}/cars/${id}`, {
             method: 'DELETE',
+            headers: { ...get().getAuthHeader() }
           });
           if (response.ok) {
             set((state) => ({
