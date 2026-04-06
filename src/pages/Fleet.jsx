@@ -17,7 +17,8 @@ function Fleet() {
       dropDate,
       fetchCars,
       categories,
-      fetchCategories
+      fetchCategories,
+      user
    } = useStore();
 
    const [activeTab, setActiveTab] = useState('All');
@@ -40,7 +41,11 @@ function Fleet() {
 
    const handleSelectCar = (car) => {
       selectCar(car);
-      navigate('/booking');
+      if (!user) {
+         navigate('/login');
+      } else {
+         navigate('/booking');
+      }
    };
 
    const filteredCars = (cars || []).filter(car => {

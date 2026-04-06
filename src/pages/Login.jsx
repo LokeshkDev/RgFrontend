@@ -16,6 +16,7 @@ function Login() {
   const [resetStatus, setResetStatus] = useState({ loading: false, msg: '' });
 
   const login = useStore((state) => state.login);
+  const selectedCar = useStore((state) => state.selectedCar);
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
@@ -41,6 +42,8 @@ function Login() {
         login(data);
         if (data.role === 'admin') {
           navigate('/admin');
+        } else if (selectedCar) {
+          navigate('/booking');
         } else {
           navigate('/');
         }

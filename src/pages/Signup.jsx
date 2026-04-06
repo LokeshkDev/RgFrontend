@@ -22,12 +22,17 @@ function Signup() {
     setLoading(true);
     setError('');
 
+    const selectedCar = useStore((state) => state.selectedCar);
     const result = await signup(formData);
 
     if (result.success) {
       const query = new URLSearchParams(location.search);
       const redirect = query.get('redirect');
-      navigate(redirect || '/');
+      if (selectedCar) {
+        navigate('/booking');
+      } else {
+        navigate(redirect || '/');
+      }
     } else {
       setError(result.message || 'Onboarding failed.');
       setLoading(false);
