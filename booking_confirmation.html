@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed": "#ffdcc6",
+                        "on-secondary-container": "#00616d",
+                        "on-primary-container": "#cbcfff",
+                        "on-secondary-fixed-variant": "#004f58",
+                        "surface-bright": "#f8f9fb",
+                        "secondary-container": "#00e3fd",
+                        "on-primary-fixed-variant": "#303c9a",
+                        "primary-fixed": "#dfe0ff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface-variant": "#454652",
+                        "surface-dim": "#d8dadc",
+                        "surface": "#f8f9fb",
+                        "inverse-primary": "#bcc2ff",
+                        "on-tertiary": "#ffffff",
+                        "inverse-on-surface": "#eff1f3",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#713700",
+                        "primary-fixed-dim": "#bcc2ff",
+                        "on-tertiary-fixed": "#301400",
+                        "surface-tint": "#4955b3",
+                        "surface-container-low": "#f2f4f6",
+                        "secondary-fixed-dim": "#00daf3",
+                        "on-background": "#191c1e",
+                        "error-container": "#ffdad6",
+                        "surface-container-high": "#e6e8ea",
+                        "on-secondary-fixed": "#001f24",
+                        "surface-container-highest": "#e0e3e5",
+                        "inverse-surface": "#2d3133",
+                        "on-error": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "outline-variant": "#c5c5d4",
+                        "tertiary-fixed-dim": "#ffb784",
+                        "on-primary-fixed": "#000c62",
+                        "surface-variant": "#e0e3e5",
+                        "outline": "#757684",
+                        "on-surface": "#191c1e",
+                        "on-error-container": "#93000a",
+                        "error": "#ba1a1a",
+                        "tertiary": "#6c3400",
+                        "on-tertiary-container": "#ffc7a2",
+                        "primary-container": "#4551af",
+                        "tertiary-container": "#8f4700",
+                        "background": "#f8f9fb",
+                        "surface-container": "#eceef0",
+                        "secondary-fixed": "#9cf0ff",
+                        "secondary": "#006875",
+                        "primary": "#2b3896"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(248, 249, 251, 0.7);
+            backdrop-filter: blur(24px);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-secondary-container/30">
+<!-- TopAppBar -->
+<header class="bg-[#f8f9fb]/80 dark:bg-slate-950/80 backdrop-blur-2xl docked full-width top-0 z-50 shadow-[0_4px_20px_-4px_rgba(43,56,150,0.1)]">
+<nav class="flex justify-between items-center w-full px-6 py-4 max-w-[1440px] mx-auto">
+<div class="flex items-center gap-8">
+<span class="text-2xl font-black text-[#2b3896] dark:text-[#9cf0ff] uppercase tracking-tighter font-headline">LUXE DRIVE</span>
+<div class="hidden md:flex gap-6">
+<a class="text-[#454652] dark:text-slate-400 font-medium hover:text-[#2b3896] dark:hover:text-[#9cf0ff] transition-colors duration-300 font-headline" href="#">Fleet</a>
+<a class="text-[#2b3896] dark:text-[#006875] border-b-2 border-[#2b3896] font-headline" href="#">Bookings</a>
+<a class="text-[#454652] dark:text-slate-400 font-medium hover:text-[#2b3896] dark:hover:text-[#9cf0ff] transition-colors duration-300 font-headline" href="#">Concierge</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden md:flex items-center gap-2">
+<span class="material-symbols-outlined text-[#2b3896]" data-icon="notifications">notifications</span>
+<span class="material-symbols-outlined text-[#2b3896]" data-icon="manage_accounts">manage_accounts</span>
+</div>
+<img alt="User profile avatar" class="w-10 h-10 rounded-full border-2 border-primary-container/20" data-alt="Close-up portrait of a professional man with a friendly expression against a clean studio background, sharp focus" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAIkU9OAn5toEFYgnzQ-Phmo5mFC-B7QIFrxZWCTP1UbaYbVEhakgakBHZ6e8i15dNV5bqnTCDzD6Qu9zPEij79bpm6QHZckyIzK25GJC6JbCLz86EBx9sJbytKXImrkAU72Kwv-x-YexZo8lguRihV_REOVeIgWALN5vI1H8W1ZEzZmVhvw4p_DfMPXZnZtTEaRWissL9_hMhcAJB34ihUIIr3qAidOTDt13V7wuS7wFkK1Okm0QSYXyG2EJ0-4qyG9oeTJy7DZQ"/>
+</div>
+</nav>
+</header>
+<main class="min-h-screen pt-24 pb-20 px-4 md:px-6">
+<div class="max-w-4xl mx-auto">
+<!-- Focused Header -->
+<div class="mb-12 text-center">
+<h1 class="font-headline text-4xl md:text-5xl font-extrabold tracking-tight text-primary mb-4">Complete Your Booking</h1>
+<p class="text-on-surface-variant font-medium">Step 3 of 3: Secure Payment &amp; Confirmation</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-5 gap-8 items-start">
+<!-- Left Column: Summary & Payment -->
+<div class="lg:col-span-3 space-y-8">
+<!-- Booking Summary Card -->
+<section class="bg-surface-container-lowest rounded-xl p-8 shadow-sm border border-outline-variant/15 relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4 opacity-5 pointer-events-none">
+<span class="material-symbols-outlined text-[120px]" data-icon="directions_car">directions_car</span>
+</div>
+<h2 class="font-headline text-xl font-bold mb-6 flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined" data-icon="fact_check">fact_check</span>
+                            Reservation Details
+                        </h2>
+<div class="space-y-6">
+<!-- Vehicle Mini Info -->
+<div class="flex items-center gap-4 bg-surface-container-low p-4 rounded-lg">
+<img alt="Selected Vehicle" class="w-24 h-16 object-cover rounded-md" data-alt="Sleek modern electric luxury sedan in metallic midnight blue, high-end photography in a minimalist studio setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRjvL2fGchcnHzOe52a4D9WzC_PQb452yqQtBVVSIg2Y0S-3e49D9gEreoFm990_vOyWKAvoAeeXTY7a8E5iDO2R8GLj5S9gBdTBqZ5XsSoBaRjpYh2_WRpXTr2W7PmDRu2VPh1JY-1ESYWQ3SvukciDAitwCZL9eAV4xJtzggqA32_sGz4Yo-eNPJRzZFJqBoqF1I01cprgE2jCgfJy7S1AWLkU0XOpRJ7HGDLziNg4f6MpHAL8TM4IAdHJypVclhZngOqOphpQ"/>
+<div>
+<h3 class="font-headline font-bold text-lg">Tesla Model S Plaid</h3>
+<p class="text-xs text-on-surface-variant font-semibold uppercase tracking-widest">Electric • Premium Performance</p>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<label class="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider block mb-1">Pickup</label>
+<p class="font-semibold text-sm">Heathrow Terminal 5</p>
+<p class="text-xs text-on-surface-variant italic">Oct 24, 2024 • 10:00 AM</p>
+</div>
+<div>
+<label class="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider block mb-1">Return</label>
+<p class="font-semibold text-sm">Heathrow Terminal 5</p>
+<p class="text-xs text-on-surface-variant italic">Oct 27, 2024 • 04:00 PM</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Payment Options -->
+<section class="bg-surface-container-lowest rounded-xl p-8 shadow-sm border border-outline-variant/15">
+<h2 class="font-headline text-xl font-bold mb-6 flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined" data-icon="account_balance_wallet">account_balance_wallet</span>
+                            Payment Method
+                        </h2>
+<div class="space-y-4">
+<!-- Digital Wallets -->
+<div class="grid grid-cols-2 gap-4">
+<button class="flex items-center justify-center gap-2 p-4 rounded-lg border-2 border-primary bg-primary/5 transition-all">
+<span class="material-symbols-outlined" data-icon="contactless">contactless</span>
+<span class="font-bold text-sm">Apple Pay</span>
+</button>
+<button class="flex items-center justify-center gap-2 p-4 rounded-lg border border-outline-variant hover:bg-surface-container transition-all">
+<span class="material-symbols-outlined" data-icon="credit_card">credit_card</span>
+<span class="font-bold text-sm">Google Pay</span>
+</button>
+</div>
+<div class="relative py-4 flex items-center">
+<div class="flex-grow border-t border-outline-variant/30"></div>
+<span class="flex-shrink mx-4 text-xs font-bold text-on-surface-variant uppercase tracking-widest">Or pay with card</span>
+<div class="flex-grow border-t border-outline-variant/30"></div>
+</div>
+<!-- Card Form -->
+<div class="space-y-4">
+<div class="relative">
+<label class="absolute -top-2 left-3 bg-surface-container-lowest px-1 text-[10px] font-bold text-primary uppercase">Cardholder Name</label>
+<input class="w-full bg-surface-container-low border-none rounded-lg p-4 focus:ring-2 focus:ring-primary/40 font-medium text-sm" type="text" value="Jameson Sterling"/>
+</div>
+<div class="relative">
+<label class="absolute -top-2 left-3 bg-surface-container-lowest px-1 text-[10px] font-bold text-primary uppercase">Card Number</label>
+<div class="relative">
+<input class="w-full bg-surface-container-low border-none rounded-lg p-4 focus:ring-2 focus:ring-primary/40 font-medium text-sm" placeholder="**** **** **** 4421" type="text"/>
+<span class="absolute right-4 top-1/2 -translate-y-1/2 material-symbols-outlined text-on-surface-variant" data-icon="lock">lock</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="relative">
+<label class="absolute -top-2 left-3 bg-surface-container-lowest px-1 text-[10px] font-bold text-primary uppercase">Expiry</label>
+<input class="w-full bg-surface-container-low border-none rounded-lg p-4 focus:ring-2 focus:ring-primary/40 font-medium text-sm" placeholder="MM/YY" type="text"/>
+</div>
+<div class="relative">
+<label class="absolute -top-2 left-3 bg-surface-container-lowest px-1 text-[10px] font-bold text-primary uppercase">CVC</label>
+<input class="w-full bg-surface-container-low border-none rounded-lg p-4 focus:ring-2 focus:ring-primary/40 font-medium text-sm" placeholder="***" type="text"/>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Right Column: Price Breakdown & CTA -->
+<aside class="lg:col-span-2 space-y-6 lg:sticky lg:top-28">
+<div class="bg-primary p-8 rounded-xl text-white shadow-xl">
+<h2 class="font-headline text-lg font-bold mb-6 opacity-90">Price Summary</h2>
+<div class="space-y-4 text-sm">
+<div class="flex justify-between items-center opacity-80">
+<span>Tesla Model S (3 Days)</span>
+<span class="font-bold">$747.00</span>
+</div>
+<div class="flex justify-between items-center opacity-80">
+<span>Digital Concierge Support</span>
+<span class="font-bold">Included</span>
+</div>
+<div class="flex justify-between items-center opacity-80">
+<span>Insurance &amp; Protection</span>
+<span class="font-bold">$120.00</span>
+</div>
+<div class="flex justify-between items-center opacity-80">
+<span>Airport Surcharge</span>
+<span class="font-bold">$45.00</span>
+</div>
+<div class="pt-6 mt-6 border-t border-white/20">
+<div class="flex justify-between items-end">
+<span class="text-lg font-headline font-bold">Total Amount</span>
+<div class="text-right">
+<p class="text-xs opacity-60 line-through">$982.00</p>
+<p class="text-3xl font-headline font-extrabold">$912.00</p>
+</div>
+</div>
+</div>
+</div>
+<button class="w-full mt-10 bg-white text-primary py-5 rounded-lg font-headline font-black text-lg uppercase tracking-tighter hover:scale-[1.02] active:scale-95 transition-all shadow-lg flex items-center justify-center gap-3">
+                            Confirm &amp; Pay
+                            <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+<p class="mt-6 text-[10px] text-center opacity-60 font-medium uppercase tracking-widest leading-relaxed">
+                            Secured by industry standard SSL encryption.<br/>By clicking pay you agree to the Terms of Service.
+                        </p>
+</div>
+<!-- Trust Badge -->
+<div class="bg-surface-container-low p-6 rounded-xl flex items-center gap-4">
+<div class="w-12 h-12 bg-secondary/10 rounded-full flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined" data-icon="verified_user">verified_user</span>
+</div>
+<div>
+<p class="text-xs font-bold font-headline text-primary uppercase">Precision Guarantee</p>
+<p class="text-[11px] text-on-surface-variant">Full refund if cancelled up to 24 hours before pickup.</p>
+</div>
+</div>
+</aside>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-[#f2f4f6] dark:bg-slate-950 w-full py-12 px-8 border-t border-[#c5c5d4]/10">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+<p class="font-['Inter'] text-xs uppercase tracking-tighter text-[#454652] dark:text-slate-500">
+                © 2024 Precision Motion Framework. The Digital Concierge experience.
+            </p>
+<div class="flex gap-8">
+<a class="text-[#454652] dark:text-slate-500 text-xs uppercase tracking-tighter hover:text-[#2b3896] underline transition-all" href="#">Privacy Policy</a>
+<a class="text-[#454652] dark:text-slate-500 text-xs uppercase tracking-tighter hover:text-[#2b3896] underline transition-all" href="#">Terms of Service</a>
+<a class="text-[#454652] dark:text-slate-500 text-xs uppercase tracking-tighter hover:text-[#2b3896] underline transition-all" href="#">Fleet Locations</a>
+<a class="text-[#454652] dark:text-slate-500 text-xs uppercase tracking-tighter hover:text-[#2b3896] underline transition-all" href="#">Contact Us</a>
+</div>
+</div>
+</footer>
+<!-- Mobile Bottom Nav -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center px-4 py-3 bg-[#f8f9fb]/90 dark:bg-slate-900/95 backdrop-blur-lg border-t border-[#c5c5d4]/15 z-50 pb-safe shadow-[0_-8px_24px_-4px_rgba(25,28,30,0.06)]">
+<div class="flex flex-col items-center justify-center text-[#454652] dark:text-slate-400 p-2 hover:bg-[#f2f4f6] dark:hover:bg-slate-800 rounded-2xl transition-all active:scale-90 duration-150">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-['Inter'] text-[11px] font-semibold uppercase tracking-widest mt-1">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-[#2b3896] dark:bg-[#006875] text-white rounded-2xl px-5 py-2 scale-105 transition-all active:scale-90 duration-150">
+<span class="material-symbols-outlined" data-icon="calendar_month">calendar_month</span>
+<span class="font-['Inter'] text-[11px] font-semibold uppercase tracking-widest mt-1">Bookings</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#454652] dark:text-slate-400 p-2 hover:bg-[#f2f4f6] dark:hover:bg-slate-800 rounded-2xl transition-all active:scale-90 duration-150">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-['Inter'] text-[11px] font-semibold uppercase tracking-widest mt-1">Profile</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#454652] dark:text-slate-400 p-2 hover:bg-[#f2f4f6] dark:hover:bg-slate-800 rounded-2xl transition-all active:scale-90 duration-150">
+<span class="material-symbols-outlined" data-icon="contact_support">contact_support</span>
+<span class="font-['Inter'] text-[11px] font-semibold uppercase tracking-widest mt-1">Help</span>
+</div>
+</nav>
+</body></html>

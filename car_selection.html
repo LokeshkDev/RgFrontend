@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>LUXE DRIVE - Available Fleet</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-fixed": "#ffdcc6",
+                    "on-secondary-container": "#00616d",
+                    "on-primary-container": "#cbcfff",
+                    "on-secondary-fixed-variant": "#004f58",
+                    "surface-bright": "#f8f9fb",
+                    "secondary-container": "#00e3fd",
+                    "on-primary-fixed-variant": "#303c9a",
+                    "primary-fixed": "#dfe0ff",
+                    "surface-container-lowest": "#ffffff",
+                    "on-surface-variant": "#454652",
+                    "surface-dim": "#d8dadc",
+                    "surface": "#f8f9fb",
+                    "inverse-primary": "#bcc2ff",
+                    "on-tertiary": "#ffffff",
+                    "inverse-on-surface": "#eff1f3",
+                    "on-secondary": "#ffffff",
+                    "on-tertiary-fixed-variant": "#713700",
+                    "primary-fixed-dim": "#bcc2ff",
+                    "on-tertiary-fixed": "#301400",
+                    "surface-tint": "#4955b3",
+                    "surface-container-low": "#f2f4f6",
+                    "secondary-fixed-dim": "#00daf3",
+                    "on-background": "#191c1e",
+                    "error-container": "#ffdad6",
+                    "surface-container-high": "#e6e8ea",
+                    "on-secondary-fixed": "#001f24",
+                    "surface-container-highest": "#e0e3e5",
+                    "inverse-surface": "#2d3133",
+                    "on-error": "#ffffff",
+                    "on-primary": "#ffffff",
+                    "outline-variant": "#c5c5d4",
+                    "tertiary-fixed-dim": "#ffb784",
+                    "on-primary-fixed": "#000c62",
+                    "surface-variant": "#e0e3e5",
+                    "outline": "#757684",
+                    "on-surface": "#191c1e",
+                    "on-error-container": "#93000a",
+                    "error": "#ba1a1a",
+                    "tertiary": "#6c3400",
+                    "on-tertiary-container": "#ffc7a2",
+                    "primary-container": "#4551af",
+                    "tertiary-container": "#8f4700",
+                    "background": "#f8f9fb",
+                    "surface-container": "#eceef0",
+                    "secondary-fixed": "#9cf0ff",
+                    "secondary": "#006875",
+                    "primary": "#2b3896"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .car-image-offset {
+            transform: translate(-12px, -24px);
+        }
+        .glass-panel {
+            background: rgba(248, 249, 251, 0.7);
+            backdrop-filter: blur(24px);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface antialiased">
+<!-- TopAppBar -->
+<header class="bg-[#f8f9fb]/80 dark:bg-slate-950/80 backdrop-blur-2xl docked full-width top-0 z-50 shadow-[0_4px_20px_-4px_rgba(43,56,150,0.1)]">
+<div class="flex justify-between items-center w-full px-6 py-4 max-w-[1440px] mx-auto">
+<div class="flex items-center gap-8">
+<span class="text-2xl font-black text-[#2b3896] dark:text-[#9cf0ff] uppercase tracking-tighter font-headline">LUXE DRIVE</span>
+<nav class="hidden md:flex gap-6 items-center">
+<a class="text-[#454652] dark:text-slate-400 font-medium hover:text-[#2b3896] dark:hover:text-[#9cf0ff] transition-colors duration-300" href="#">Home</a>
+<a class="text-[#2b3896] dark:text-[#006875] border-b-2 border-[#2b3896] font-medium transition-colors duration-300" href="#">Fleet</a>
+<a class="text-[#454652] dark:text-slate-400 font-medium hover:text-[#2b3896] dark:hover:text-[#9cf0ff] transition-colors duration-300" href="#">Experience</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="manage_accounts">manage_accounts</span>
+</button>
+<img alt="User profile avatar" class="w-10 h-10 rounded-full border-2 border-primary/10" data-alt="close-up portrait of a professional man in a dark suit with a clean office background in soft focus" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQPH6ST-jNWWkWNU41_6vaHRvljjJxdywbL_q2XdZeeiXgiHeyW85UnyiscKYzhdyM9tkgUjTaidpvMEmqMzxs200yaZAbIP4jrgLnVY23GYsHkFAk3X-QQkh_imeL62TqbU9olAOsFkKJxLUk1UZGKyDx3pnZI0K1M9JIbf63sWEgZGYv4l1WTOC5H9t4NDfKqx2XIJnKFXWS9xpwJe6Lg49jva-au8XvtGa22Qq3b7KgmX6A1brq-MUy6exknYe3WXsvXgQeCA"/>
+</div>
+</div>
+</header>
+<main class="max-w-[1440px] mx-auto px-4 md:px-8 pt-8 pb-24 min-h-screen">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Filter Sidebar (Asymmetric layout) -->
+<aside class="lg:col-span-3 space-y-8">
+<div class="bg-surface-container-low rounded-xl p-6">
+<div class="flex items-center justify-between mb-6">
+<h2 class="font-headline font-bold text-xl text-primary">Refine Search</h2>
+<span class="material-symbols-outlined text-secondary" data-icon="filter_list">filter_list</span>
+</div>
+<!-- Filter Groups -->
+<div class="space-y-6">
+<div>
+<label class="font-headline font-semibold text-sm uppercase tracking-wider text-on-surface-variant mb-4 block">Price Range</label>
+<div class="relative h-2 bg-outline-variant/30 rounded-full mb-6">
+<div class="absolute h-full bg-secondary rounded-full" style="width: 60%; left: 10%;"></div>
+<div class="absolute top-1/2 -translate-y-1/2 left-[10%] w-4 h-4 bg-primary border-2 border-white rounded-full shadow-md cursor-pointer"></div>
+<div class="absolute top-1/2 -translate-y-1/2 left-[70%] w-4 h-4 bg-primary border-2 border-white rounded-full shadow-md cursor-pointer"></div>
+</div>
+<div class="flex justify-between text-xs font-bold font-label">
+<span>$150</span>
+<span>$850</span>
+</div>
+</div>
+<div>
+<label class="font-headline font-semibold text-sm uppercase tracking-wider text-on-surface-variant mb-3 block">Vehicle Type</label>
+<div class="space-y-2">
+<label class="flex items-center gap-3 p-3 bg-surface-container-lowest rounded-lg cursor-pointer hover:bg-white border border-transparent hover:border-primary/20 transition-all">
+<input checked="" class="rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"/>
+<span class="text-sm font-medium">Electric Performance</span>
+</label>
+<label class="flex items-center gap-3 p-3 bg-surface-container-lowest rounded-lg cursor-pointer hover:bg-white transition-all">
+<input class="rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"/>
+<span class="text-sm font-medium">Luxury Sedans</span>
+</label>
+<label class="flex items-center gap-3 p-3 bg-surface-container-lowest rounded-lg cursor-pointer hover:bg-white transition-all">
+<input class="rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"/>
+<span class="text-sm font-medium">SUV Prestige</span>
+</label>
+</div>
+</div>
+<div>
+<label class="font-headline font-semibold text-sm uppercase tracking-wider text-on-surface-variant mb-3 block">Energy Source</label>
+<div class="grid grid-cols-2 gap-2">
+<button class="py-2 px-3 bg-white border border-primary/20 text-primary rounded-lg text-xs font-bold">EV ONLY</button>
+<button class="py-2 px-3 bg-surface-container-lowest text-on-surface-variant rounded-lg text-xs font-bold">HYBRID</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Promo Card (Digital Concierge Feel) -->
+<div class="bg-primary-container p-8 rounded-xl text-on-primary relative overflow-hidden">
+<div class="relative z-10">
+<h3 class="font-headline font-extrabold text-2xl mb-2">Concierge Special</h3>
+<p class="text-on-primary-container text-sm leading-relaxed mb-6">Upgrade to a private chauffeur for $99 on your first booking.</p>
+<button class="bg-secondary-fixed text-on-secondary-fixed px-6 py-3 rounded-md font-bold text-sm hover:scale-105 transition-transform">Inquire Now</button>
+</div>
+<div class="absolute -right-4 -bottom-4 opacity-20 transform rotate-12">
+<span class="material-symbols-outlined text-8xl" data-icon="auto_awesome">auto_awesome</span>
+</div>
+</div>
+</aside>
+<!-- Results Column -->
+<div class="lg:col-span-9">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-8 gap-4">
+<div>
+<h1 class="font-headline font-black text-4xl text-on-surface tracking-tight mb-2">Available Fleet</h1>
+<p class="text-on-surface-variant font-medium">24 high-performance vehicles matching your profile.</p>
+</div>
+<div class="flex items-center gap-4 bg-surface-container-low p-2 rounded-lg">
+<span class="text-xs font-bold uppercase tracking-widest text-on-surface-variant ml-2">Sort by:</span>
+<select class="bg-transparent border-none focus:ring-0 text-sm font-bold text-primary">
+<option>Premium First</option>
+<option>Price: Low to High</option>
+<option>Rating: 4.5+</option>
+</select>
+</div>
+</div>
+<!-- Car Cards Stack (Centered Column Aesthetic) -->
+<div class="max-w-2xl mx-auto space-y-12">
+<!-- Car Card 1 -->
+<div class="group relative bg-surface-container-lowest rounded-xl p-6 shadow-sm hover:shadow-xl transition-all duration-500">
+<div class="relative flex flex-col md:flex-row gap-8">
+<div class="md:w-1/2 relative">
+<div class="car-image-offset md:absolute w-[110%] h-56 md:h-64 rounded-xl overflow-hidden shadow-2xl z-20">
+<img alt="Porsche Taycan in Frozen Blue" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="sleek modern blue electric sports car parked on a mountain road at dusk with cool cinematic lighting and sharp reflections" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDHrzp1SVqdXKWajY0NoZ3qFaaomRP7FqHTwKUKhCz2CVrOidODFiZXD5Rtnf3FufJjzGaqreJ441PA-xO7e2N6oKCits257-8Hdd6Z7-a_Qpff-dkYgIn-pFiMvQc2G7FqjPe5fP1NSHaV3wQbagClRx9M_IeGEC01050WhCKSomfwDV6P253VicvoMCkvHyrugNZI7MNS1MTUttg-4QvWJdRZVEfuk1TVXNCZemepXdEnOjMr7HXFYQTR224jLCBi-WeRMTM45Q"/>
+</div>
+<div class="hidden md:block absolute -inset-4 bg-secondary-fixed/10 rounded-xl blur-2xl group-hover:bg-secondary-fixed/20 transition-colors"></div>
+</div>
+<div class="md:w-1/2 pt-4 md:pt-0">
+<div class="flex justify-between items-start mb-2">
+<span class="bg-secondary-container text-on-secondary-container text-[10px] font-black uppercase tracking-[0.2em] px-3 py-1 rounded-full">Electric Exclusive</span>
+<div class="flex items-center gap-1 text-tertiary">
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-xs font-bold">4.9 (128)</span>
+</div>
+</div>
+<h3 class="font-headline font-extrabold text-3xl text-on-surface mb-1 group-hover:text-primary transition-colors">Taycan Turbo S</h3>
+<p class="text-on-surface-variant text-sm mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-lg" data-icon="speed">speed</span> 2.6s (0-60) • <span class="material-symbols-outlined text-lg" data-icon="battery_charging_full">battery_charging_full</span> 270mi Range
+                                </p>
+<div class="flex items-center justify-between mt-auto pt-6 border-t border-outline-variant/10">
+<div>
+<span class="text-2xl font-black text-primary font-headline">$480</span>
+<span class="text-xs font-bold text-on-surface-variant uppercase tracking-tighter">/ day</span>
+</div>
+<button class="bg-primary text-white px-8 py-3 rounded-md font-bold hover:scale-105 active:scale-95 transition-all shadow-lg shadow-primary/20">Book Now</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Car Card 2 -->
+<div class="group relative bg-surface-container-lowest rounded-xl p-6 shadow-sm hover:shadow-xl transition-all duration-500">
+<div class="relative flex flex-col md:flex-row gap-8">
+<div class="md:w-1/2 relative">
+<div class="car-image-offset md:absolute w-[110%] h-56 md:h-64 rounded-xl overflow-hidden shadow-2xl z-20">
+<img alt="Black BMW M8" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="black high-performance luxury coupe driving through an urban tunnel with dramatic neon light streaks and motion blur" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCcV52GUZVbBUqhH_YIRgVEU7fGFHthScYYa8xcuwU0xz2X3TlFCrgwXuQRzYlxiL0AkFTRXZFJfW2HRxgSEfxhSRd0iYRV1txl5qY-cUo2x2ReWmPLdPmVMn-_5JjwZOS0vSBIaRvSdK2G1OL0pJUObv_GvD5TJeaMRJc8rvJ08_NsyYsHFBqHGuyfiuu9jVU6OO-azcBN4goH-sDH_9geNkuI0LLU9JxTkhDa9B96egHFLUisVlnhh2-fYtK7UDS2OG6O_bj4Zg"/>
+</div>
+<div class="hidden md:block absolute -inset-4 bg-primary/5 rounded-xl blur-2xl group-hover:bg-primary/10 transition-colors"></div>
+</div>
+<div class="md:w-1/2 pt-4 md:pt-0">
+<div class="flex justify-between items-start mb-2">
+<span class="bg-surface-container-highest text-on-surface-variant text-[10px] font-black uppercase tracking-[0.2em] px-3 py-1 rounded-full">Executive Fleet</span>
+<div class="flex items-center gap-1 text-tertiary">
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-xs font-bold">4.8 (94)</span>
+</div>
+</div>
+<h3 class="font-headline font-extrabold text-3xl text-on-surface mb-1 group-hover:text-primary transition-colors">M8 Competition</h3>
+<p class="text-on-surface-variant text-sm mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-lg" data-icon="settings">settings</span> AWD • <span class="material-symbols-outlined text-lg" data-icon="airline_seat_recline_extra">airline_seat_recline_extra</span> 4 Seats • <span class="material-symbols-outlined text-lg" data-icon="local_gas_station">local_gas_station</span> Premium
+                                </p>
+<div class="flex items-center justify-between mt-auto pt-6 border-t border-outline-variant/10">
+<div>
+<span class="text-2xl font-black text-primary font-headline">$395</span>
+<span class="text-xs font-bold text-on-surface-variant uppercase tracking-tighter">/ day</span>
+</div>
+<button class="bg-primary text-white px-8 py-3 rounded-md font-bold hover:scale-105 active:scale-95 transition-all shadow-lg shadow-primary/20">Book Now</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Car Card 3 -->
+<div class="group relative bg-surface-container-lowest rounded-xl p-6 shadow-sm hover:shadow-xl transition-all duration-500">
+<div class="relative flex flex-col md:flex-row gap-8">
+<div class="md:w-1/2 relative">
+<div class="car-image-offset md:absolute w-[110%] h-56 md:h-64 rounded-xl overflow-hidden shadow-2xl z-20">
+<img alt="White Porsche 911" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="vintage white high-end sports car parked on a coastal road overlooking the ocean at sunset with warm orange lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBrSkYPHP-G2ApipEf-SBQ3ETBmKyJG47E_bRycTe3XMnYKSJX3FmKTqE59G3WkDWgf40k1kNntqQF0nni4n8zkUtlOOcMoZmrz2orTHF8fWP9_uIjpOqeURe3AjVWMDjN_I5Z_SXrMQv4zD4wYt7bZ2c7mK-Ju7DkEGYjJ3shNQdFKlf_CIV1qMZMcV9BgoP3FNZGNfbHYdpSCA6s6W4xIO1WMjskzZAUgwZJXQ_etZCvKdw6rN-rHCL5uvdPq181ahbrrcRADQ"/>
+</div>
+<div class="hidden md:block absolute -inset-4 bg-tertiary-fixed/20 rounded-xl blur-2xl group-hover:bg-tertiary-fixed/30 transition-colors"></div>
+</div>
+<div class="md:w-1/2 pt-4 md:pt-0">
+<div class="flex justify-between items-start mb-2">
+<span class="bg-tertiary-fixed text-on-tertiary-fixed-variant text-[10px] font-black uppercase tracking-[0.2em] px-3 py-1 rounded-full">Timeless Icon</span>
+<div class="flex items-center gap-1 text-tertiary">
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-xs font-bold">5.0 (210)</span>
+</div>
+</div>
+<h3 class="font-headline font-extrabold text-3xl text-on-surface mb-1 group-hover:text-primary transition-colors">911 Carrera</h3>
+<p class="text-on-surface-variant text-sm mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-lg" data-icon="sports_score">sports_score</span> Track Ready • <span class="material-symbols-outlined text-lg" data-icon="palette">palette</span> Chalk White
+                                </p>
+<div class="flex items-center justify-between mt-auto pt-6 border-t border-outline-variant/10">
+<div>
+<span class="text-2xl font-black text-primary font-headline">$520</span>
+<span class="text-xs font-bold text-on-surface-variant uppercase tracking-tighter">/ day</span>
+</div>
+<button class="bg-primary text-white px-8 py-3 rounded-md font-bold hover:scale-105 active:scale-95 transition-all shadow-lg shadow-primary/20">Book Now</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center px-4 py-3 bg-[#f8f9fb]/90 backdrop-blur-lg border-t border-[#c5c5d4]/15 z-50 shadow-[0_-8px_24px_-4px_rgba(25,28,30,0.06)]">
+<div class="flex flex-col items-center justify-center text-[#454652] p-2">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-['Inter'] text-[11px] font-semibold uppercase tracking-widest mt-1">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-[#2b3896] text-white rounded-2xl px-5 py-2 scale-105 transition-all">
+<span class="material-symbols-outlined" data-icon="calendar_month">calendar_month</span>
+<span class="font-['Inter'] text-[11px] font-semibold uppercase tracking-widest mt-1">Bookings</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#454652] p-2">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-['Inter'] text-[11px] font-semibold uppercase tracking-widest mt-1">Profile</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#454652] p-2">
+<span class="material-symbols-outlined" data-icon="contact_support">contact_support</span>
+<span class="font-['Inter'] text-[11px] font-semibold uppercase tracking-widest mt-1">Help</span>
+</div>
+</nav>
+<!-- Footer -->
+<footer class="w-full py-12 px-8 bg-surface-container-low border-t border-[#c5c5d4]/10 hidden md:block">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+<p class="font-['Inter'] text-xs uppercase tracking-tighter text-on-surface-variant">© 2024 Precision Motion Framework. The Digital Concierge experience.</p>
+<div class="flex gap-8">
+<a class="font-['Inter'] text-xs uppercase tracking-tighter text-[#454652] hover:text-[#2b3896] transition-all" href="#">Privacy Policy</a>
+<a class="font-['Inter'] text-xs uppercase tracking-tighter text-[#454652] hover:text-[#2b3896] transition-all" href="#">Terms of Service</a>
+<a class="font-['Inter'] text-xs uppercase tracking-tighter text-[#454652] hover:text-[#2b3896] transition-all" href="#">Fleet Locations</a>
+<a class="font-['Inter'] text-xs uppercase tracking-tighter text-[#454652] hover:text-[#2b3896] transition-all" href="#">Contact Us</a>
+</div>
+</div>
+</footer>
+</body></html>
